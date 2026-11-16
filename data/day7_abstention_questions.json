@@ -1,0 +1,34 @@
+[
+  {
+    "id": "U01",
+    "split": "dev",
+    "question": "Nghị định 94/2026/NĐ-CP quy định mức lệ phí cụ thể nào cho việc cấp giấy phép sát hạch?",
+    "expected_answer": "Không đủ bằng chứng trong corpus để xác định mức lệ phí.",
+    "answerable": false,
+    "gold": []
+  },
+  {
+    "id": "U02",
+    "split": "dev",
+    "question": "Theo Nghị định 94/2026/NĐ-CP, người học lái xe phải đạt điểm tối thiểu bao nhiêu cho từng câu hỏi lý thuyết?",
+    "expected_answer": "Không đủ bằng chứng trong corpus để xác định điểm tối thiểu.",
+    "answerable": false,
+    "gold": []
+  },
+  {
+    "id": "U03",
+    "split": "test",
+    "question": "Nghị định 94/2026/NĐ-CP quy định chính xác bao nhiêu tiền phạt khi cơ sở đào tạo vi phạm?",
+    "expected_answer": "Không đủ bằng chứng trong corpus để xác định số tiền phạt.",
+    "answerable": false,
+    "gold": []
+  },
+  {
+    "id": "U04",
+    "split": "test",
+    "question": "Theo Nghị định 94/2026/NĐ-CP, cơ sở đào tạo phải mua bảo hiểm nào cho từng học viên và với mức phí bao nhiêu?",
+    "expected_answer": "Không đủ bằng chứng trong corpus để xác định loại bảo hiểm và mức phí.",
+    "answerable": false,
+    "gold": []
+  }
+]

@@ -1,5 +1,9 @@
 # Day 7 — Agentic RAG
 
+The completed implementation and reproducible commands are documented in
+[IMPLEMENTATION.md](IMPLEMENTATION.md). The filled individual report is
+[report/individual/2A202603984_DangQuangDuy.md](report/individual/2A202603984_DangQuangDuy.md).
+
 **Bài cá nhân · Python 3.11+ · tiếp nối Day 6**
 
 Dùng embedding và vector store từ Day 6 để xây một agent biết tìm bằng chứng, trả lời có nguồn và nhận biết khi không đủ thông tin. Bạn tự chọn kiến trúc, số tool và cách tổ chức retrieval.

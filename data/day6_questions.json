@@ -1,0 +1,308 @@
+[
+  {
+    "id": "D01",
+    "split": "dev",
+    "question": "Nghị định 94/2026/NĐ-CP điều chỉnh những nhóm hoạt động nào trong lĩnh vực đào tạo và sát hạch lái xe?",
+    "expected_answer": "Nghị định quy định về hoạt động đào tạo và sát hạch lái xe, gồm hình thức đào tạo khác; điều kiện kinh doanh dịch vụ đào tạo ô tô; tiêu chuẩn giáo viên và thủ tục liên quan đến giấy chứng nhận, xe tập lái, giấy phép đào tạo; điều kiện kinh doanh dịch vụ sát hạch, giấy phép sát hạch và điều kiện sân tập lái mô tô.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 1,
+        "evidence": "Nghị định này quy định chi tiết một số điều của Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15, được sửa đổi, bổ sung bởi Luật sửa đổi, bổ sung một số điều của 10 Luật có liên quan đến an ninh, trật tự số 118/2025/QH15 về hoạt động đào tạo và sát hạch lái xe, gồm: hình thức đào tạo lái xe khác; điều kiện kinh doanh dịch vụ đào tạo lái xe ô tô của cơ sở đào tạo lái xe ô tô; tiêu chuẩn của giáo viên dạy lái xe;"
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D02",
+    "split": "dev",
+    "question": "Những hoạt động đào tạo và sát hạch lái xe nào không thuộc phạm vi áp dụng của Nghị định này?",
+    "expected_answer": "Hoạt động đào tạo và sát hạch lái xe cho lực lượng quân đội, công an làm nhiệm vụ quốc phòng, an ninh không thuộc phạm vi áp dụng.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 1,
+        "evidence": "Nghị định này không áp dụng đối với hoạt động đào tạo và sát hạch lái xe cho lực lượng quân đội, công an làm nhiệm vụ quốc phòng, an ninh."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D03",
+    "split": "dev",
+    "question": "Một người muốn tự học phần lý thuyết để thi giấy phép hạng B1 có được không, và phải đăng ký ở đâu?",
+    "expected_answer": "Được tự học các môn học lý thuyết đối với hạng B1; người học phải đăng ký tại cơ sở được phép đào tạo để được quản lý theo quy định của Bộ Xây dựng.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 3,
+        "evidence": "Tự học áp dụng đối với các môn học lý thuyết để cấp giấy phép lái xe các hạng A1, A và B1."
+      },
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 3,
+        "evidence": "Người học phải đăng ký tại cơ sở được phép đào tạo để được quản lý theo quy định của Bộ Xây dựng."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D04",
+    "split": "dev",
+    "question": "Đào tạo từ xa, tự học có hướng dẫn áp dụng cho những môn học nào của người học các hạng B và C?",
+    "expected_answer": "Áp dụng cho các môn pháp luật về giao thông đường bộ; đạo đức, văn hóa giao thông và phòng chống tác hại rượu bia khi tham gia giao thông; cùng phần lý thuyết của cấu tạo và sửa chữa thông thường, kỹ năng PCCC và CNCH, kỹ thuật lái xe.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 3,
+        "evidence": "Đào tạo từ xa, tự học có hướng dẫn áp dụng đối với các môn học pháp luật về giao thông đường bộ, đạo đức, văn hóa giao thông và phòng chống tác hại của rượu, bia khi tham gia giao thông và học lý thuyết của các môn: cấu tạo và sửa chữa thông thường; kỹ năng phòng cháy, chữa cháy và cứu nạn, cứu hộ; kỹ thuật lái xe để cấp giấy phép lái xe hạng B, C1, C, D1, D2, D, BE, C1E, CE, D1E, D2E và DE."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D05",
+    "split": "dev",
+    "question": "Người đứng đầu cơ sở đào tạo lái xe ô tô phải có trình độ học vấn tối thiểu nào?",
+    "expected_answer": "Phải có bằng tốt nghiệp cao đẳng trở lên.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 4,
+        "evidence": "Người đứng đầu cơ sở đào tạo lái xe ô tô phải có bằng tốt nghiệp cao đẳng trở lên."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D06",
+    "split": "dev",
+    "question": "Một giáo viên dạy thực hành lái xe cần đáp ứng những nhóm tiêu chuẩn nào?",
+    "expected_answer": "Cần có bằng tốt nghiệp trung cấp chuyên nghiệp, trung cấp nghề hoặc bằng nghề trở lên; giấy phép lái xe hạng tương ứng hoặc cao hơn hạng xe đào tạo; văn bằng/chứng chỉ nghiệp vụ sư phạm thuộc danh mục quy định; và đã qua tập huấn nghiệp vụ dạy thực hành lái xe theo chương trình khung.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 6,
+        "evidence": "Giáo viên dạy thực hành lái xe đáp ứng các tiêu chuẩn sau: a) Bằng tốt nghiệp trung cấp chuyên nghiệp hoặc trung cấp nghề hoặc bằng nghề trở lên; b) Có giấy phép lái xe hạng tương ứng hoặc cao hơn hạng xe đào tạo;"
+      },
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 6,
+        "evidence": "Có một trong các văn bằng, chứng chỉ về trình độ nghiệp vụ sư phạm sau: Bằng cử nhân thuộc ngành đào tạo giáo viên trở lên; Bằng tốt nghiệp cao đẳng sư phạm, cao đẳng sư phạm kỹ thuật."
+      },
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 7,
+        "evidence": "Đã qua tập huấn về nghiệp vụ dạy thực hành lái xe theo chương trình khung quy định tại Phụ lục II kèm theo Nghị định này."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D07",
+    "split": "dev",
+    "question": "Nếu hồ sơ cấp giấy chứng nhận giáo viên dạy thực hành lái xe có bằng cấp đã tích hợp vào tài khoản định danh điện tử thì có bắt buộc nộp bản giấy để đối chiếu không?",
+    "expected_answer": "Không nhất thiết; việc xuất trình, kiểm tra các giấy tờ đó có thể thực hiện thông qua tài khoản định danh điện tử.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 7,
+        "evidence": "Trường hợp giấy tờ quy định tại điểm b, điểm c khoản này đã được tích hợp vào tài khoản định danh điện tử thì việc xuất trình, kiểm tra có thể thực hiện thông qua tài khoản định danh điện tử."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D08",
+    "split": "dev",
+    "question": "Trong bao lâu kể từ khi kết thúc tập huấn, cơ sở đào tạo phải gửi đề nghị kiểm tra cấp giấy chứng nhận giáo viên dạy thực hành?",
+    "expected_answer": "Không quá 02 ngày làm việc kể từ ngày kết thúc chương trình tập huấn.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 8,
+        "evidence": "Trong thời hạn không quá 02 ngày làm việc kể từ ngày kết thúc chương trình tập huấn, cơ sở đào tạo có văn bản đề nghị kiểm tra cấp giấy chứng nhận giáo viên dạy thực hành lái xe"
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D09",
+    "split": "dev",
+    "question": "Giấy chứng nhận giáo viên dạy thực hành lái xe bị thu hồi do gian lận khi tham dự tập huấn/kiểm tra thì người vi phạm có thể được cấp lại sau bao lâu, và có phải kiểm tra lại không?",
+    "expected_answer": "Không được cấp giấy chứng nhận trong 05 năm kể từ ngày bị thu hồi; nếu có nhu cầu cấp lại thì phải tập huấn và kiểm tra lại như trường hợp cấp lần đầu.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 10,
+        "evidence": "người có hành vi vi phạm phải chịu trách nhiệm trước pháp luật và không được cấp giấy chứng nhận giáo viên dạy thực hành lái xe trong thời hạn 05 năm, kể từ ngày bị thu hồi giấy chứng nhận giáo viên dạy thực hành lái xe; nếu có nhu cầu cấp lại giấy chứng nhận giáo viên dạy thực hành lái xe phải tập huấn và kiểm tra lại như trường hợp cấp giấy chứng nhận giáo viên dạy thực hành lái xe lần đầu."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D10",
+    "split": "dev",
+    "question": "Giấy phép xe tập lái có thời hạn hiệu lực như thế nào?",
+    "expected_answer": "Có hiệu lực tương ứng với thời hạn hiệu lực ghi trên giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường xe cơ giới, nhưng không vượt quá thời hạn sử dụng hợp pháp của xe tập lái.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 10,
+        "evidence": "giấy phép xe tập lái có hiệu lực tương ứng với thời hạn hiệu lực ghi trên giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường xe cơ giới nhưng không vượt quá thời hạn sử dụng hợp pháp đối với xe tập lái."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D11",
+    "split": "dev",
+    "question": "Cơ sở đào tạo không tổ chức đào tạo lái xe ô tô trong bao lâu liên tục thì thuộc trường hợp bị thu hồi giấy phép đào tạo?",
+    "expected_answer": "Khi không tổ chức hoạt động đào tạo lái xe trong thời gian 24 tháng liên tục.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 15,
+        "evidence": "Cơ sở đào tạo lái xe không tổ chức hoạt động đào tạo lái xe trong thời gian 24 tháng liên tục;"
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D12",
+    "split": "dev",
+    "question": "Diện tích tối thiểu của trung tâm sát hạch lái xe loại 1, loại 2 và loại 3 lần lượt là bao nhiêu?",
+    "expected_answer": "Loại 1: không nhỏ hơn 35.000 m²; loại 2: không nhỏ hơn 20.000 m²; loại 3: không nhỏ hơn 4.000 m².",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 18,
+        "evidence": "Diện tích trung tâm sát hạch lái xe: trung tâm sát hạch lái xe loại 1 có diện tích không nhỏ hơn 35.000 m2; trung tâm sát hạch lái xe loại 2 có diện tích không nhỏ hơn 20.000 m2; trung tâm sát hạch lái xe loại 3 có diện tích không nhỏ hơn 4.000 m2."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D13",
+    "split": "dev",
+    "question": "Theo quy định tại Chương III về trung tâm sát hạch lái xe, trung tâm loại 3 phải có tối thiểu bao nhiêu máy tính làm máy trạm phục vụ sát hạch lý thuyết?",
+    "expected_answer": "Tối thiểu 10 máy tính làm chức năng máy trạm.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 19,
+        "evidence": "tối thiểu 10 máy tính làm chức năng máy trạm đối với trung tâm sát hạch lái xe loại 3, tối thiểu 20 máy tính làm chức năng máy trạm đối với trung tâm sát hạch lái xe loại 1 và loại 2."
+      }
+    ],
+    "filter": {
+      "chapter": "chapter_III"
+    }
+  },
+  {
+    "id": "D14",
+    "split": "dev",
+    "question": "Trung tâm sát hạch loại 1 có được cấp giấy phép dù chưa cung cấp dịch vụ sát hạch tất cả các hạng được liệt kê trong phân loại không? Điều kiện tối thiểu là gì?",
+    "expected_answer": "Có thể được cấp giấy phép cho các hạng đáp ứng đủ điều kiện; riêng trung tâm loại 1 phải cung cấp dịch vụ sát hạch tối thiểu các hạng A1, A, B, C1, C, D2, D.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 20,
+        "evidence": "trung tâm sát hạch lái xe loại 1 phải cung cấp dịch vụ để sát hạch tối thiểu các hạng giấy phép lái xe A1, A, B, C1, C, D2, D."
+      },
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 20,
+        "evidence": "Trường hợp trung tâm sát hạch lái xe chưa cung cấp dịch vụ để sát hạch các hạng giấy phép lái xe quy định tại khoản 4 Điều 3 của Nghị định này, thì được cấp giấy phép sát hạch để sát hạch đối với các hạng giấy phép lái xe đáp ứng đủ điều kiện;"
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "D15",
+    "split": "dev",
+    "question": "Trong phạm vi Chương IV, sân tập lái mô tô dùng để sát hạch hạng A1 cần tối thiểu bao nhiêu xe sát hạch trong hình?",
+    "expected_answer": "Tối thiểu 02 xe đối với hạng A1.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 24,
+        "evidence": "Số lượng xe sát hạch trong hình hạng A1, A tối thiểu mỗi hạng 02 xe, hạng B1 tối thiểu 01 xe"
+      }
+    ],
+    "filter": {
+      "chapter": "chapter_IV"
+    }
+  },
+  {
+    "id": "T01",
+    "split": "test",
+    "question": "Chỉ xét các quy định tại Chương II về đào tạo lái xe: một cơ sở đào tạo bố trí phòng học lý thuyết và phòng học kỹ thuật ô tô theo nguyên tắc lưu lượng tối đa bao nhiêu học viên cho mỗi phòng?",
+    "expected_answer": "01 phòng sử dụng học lý thuyết và 01 phòng sử dụng học kỹ thuật ô tô đáp ứng tối đa lưu lượng 500 học viên.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 5,
+        "evidence": "được xác định theo nguyên tắc 01 phòng sử dụng học lý thuyết và 01 phòng sử dụng học kỹ thuật ô tô đáp ứng tối đa lưu lượng 500 học viên."
+      }
+    ],
+    "filter": {
+      "chapter": "chapter_II"
+    }
+  },
+  {
+    "id": "T02",
+    "split": "test",
+    "question": "Nếu trung tâm sát hạch loại 1 có diện tích 34.500 m² nhưng đáp ứng các điều kiện khác thì đã đạt yêu cầu diện tích theo Nghị định chưa?",
+    "expected_answer": "Chưa. Trung tâm sát hạch loại 1 phải có diện tích không nhỏ hơn 35.000 m².",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 18,
+        "evidence": "trung tâm sát hạch lái xe loại 1 có diện tích không nhỏ hơn 35.000 m2;"
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "T03",
+    "split": "test",
+    "question": "Một sân tập lái mô tô bị thu hồi chấp thuận vì không triển khai hoạt động sát hạch trong 24 tháng. Nếu sau đó có nhu cầu và đáp ứng đủ điều kiện, có được xem xét cấp lại không?",
+    "expected_answer": "Có. Trường hợp bị thu hồi theo điểm b khoản 1 Điều 35 (không triển khai hoạt động sau 24 tháng), nếu có nhu cầu và đáp ứng đủ điều kiện thì được xem xét cấp lại.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 28,
+        "evidence": "Chấp thuận hoạt động của sân tập lái để sát hạch lái xe mô tô bị thu hồi theo quy định tại điểm b, c, d, đ, e khoản 1 Điều này nếu có nhu cầu và đáp ứng đủ các điều kiện theo quy định thì được xem xét cấp lại."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "T04",
+    "split": "test",
+    "question": "Nghị định 94/2026/NĐ-CP bắt đầu có hiệu lực từ ngày nào?",
+    "expected_answer": "Ngày 01 tháng 7 năm 2026.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 30,
+        "evidence": "Nghị định này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026."
+      }
+    ],
+    "filter": null
+  },
+  {
+    "id": "T05",
+    "split": "test",
+    "question": "Hồ sơ xin cấp giấy phép sát hạch đã nộp trước ngày Nghị định 94/2026/NĐ-CP có hiệu lực có phải chuyển sang quy trình mới không?",
+    "expected_answer": "Không. Hồ sơ đã nộp tại cơ quan có thẩm quyền trước ngày Nghị định có hiệu lực thì thực hiện theo Nghị định 160/2024/NĐ-CP.",
+    "gold": [
+      {
+        "source_id": "94/2026/NĐ-CP",
+        "page": 31,
+        "evidence": "Hồ sơ đề nghị cấp giấy chứng nhận giáo viên dạy thực hành lái xe, giấy phép xe tập lái, giấy phép đào tạo lái xe ô tô, giấy phép sát hạch, chấp thuận hoạt động của sân tập lái để sát hạch lái xe mô tô đã nộp tại cơ quan có thẩm quyền trước ngày Nghị định này có hiệu lực thì thực hiện theo quy định tại Nghị định số 160/2024/NĐ-CP"
+      }
+    ],
+    "filter": null
+  }
+]

@@ -3,6 +3,9 @@
 Adapters are intentionally not provided: Day 6 has no fixed database schema and
 model providers differ. Never use fake adapters to report benchmark quality.
 """
+import json
+import os
+import urllib.request
 from typing import Any, Protocol
 from baseline import pack_context
 
@@ -26,6 +29,65 @@ class Retriever(Protocol):
         The query embedding model and dimension must match the document index.
         """
         ...
+
+
+class OpenAIController:
+    """Minimal OpenAI-compatible tool-calling controller.
+
+    The API key is read only from the environment.  No key or answer data is
+    stored in the repository.  The endpoint can be replaced for an
+    OpenAI-compatible local gateway with ``OPENAI_BASE_URL``.
+    """
+
+    def __init__(self, model: str | None = None, *, api_key: str | None = None,
+                 base_url: str | None = None, timeout: int = 60):
+        self.model = model or os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+        self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
+        self.base_url = (base_url or os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")).rstrip("/")
+        self.timeout = timeout
+        if not self.api_key:
+            raise RuntimeError("OPENAI_API_KEY is required for OpenAIController")
+
+    def decide(self, question: str, history: list[dict[str, Any]]) -> dict[str, Any]:
+        system = (
+            "You are a grounded retrieval agent. Use the search result context "
+            "only. If more evidence is needed, return JSON {action: search, query: string}. "
+            "Otherwise return JSON {action: answer, answer: string, citations: [chunk ids]}. "
+            "Every citation must appear in the answer as [chunk-id]. If evidence is insufficient, "
+            "answer that it is insufficient and cite no unsupported claim."
+        )
+        payload = {
+            "model": self.model,
+            "temperature": 0,
+            "response_format": {"type": "json_object"},
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": json.dumps({"question": question, "history": history}, ensure_ascii=False)},
+            ],
+        }
+        request = urllib.request.Request(
+            f"{self.base_url}/chat/completions",
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(request, timeout=self.timeout) as response:
+            body = json.loads(response.read().decode("utf-8"))
+        content = body["choices"][0]["message"]["content"]
+        action = json.loads(content)
+        if not isinstance(action, dict):
+            raise ValueError("model response must be a JSON object")
+        return action
+
+
+class StrategyRetriever:
+    """Adapter around ``RetrievalRouter`` with the protocol expected by run_agent."""
+
+    def __init__(self, router: Any, strategy: str = "hybrid"):
+        self.router, self.strategy = router, strategy
+
+    def search(self, query: str, *, filters: dict[str, Any] | None, top_k: int) -> list[dict[str, Any]]:
+        return self.router.search(query, filters=filters, top_k=top_k, strategy=self.strategy)
 
 
 def run_agent(question: str, controller: Controller, retriever: Retriever, *,
@@ -52,6 +114,8 @@ def run_agent(question: str, controller: Controller, retriever: Retriever, *,
             if not isinstance(query, str) or not query.strip():
                 raise ValueError('search query phải là chuỗi không rỗng')
             results = retriever.search(query, filters=filters, top_k=top_k)
+            if not isinstance(results, list):
+                raise ValueError('retriever phải trả về list')
             if len(results) > top_k or len({r['id'] for r in results}) != len(results):
                 raise ValueError('retriever phải trả tối đa top_k chunk ID duy nhất')
             candidates.extend(results)

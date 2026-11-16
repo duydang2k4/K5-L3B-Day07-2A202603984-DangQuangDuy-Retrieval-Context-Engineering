@@ -14,7 +14,26 @@ def tokenize(text):
     return re.findall(r'\w+', unicodedata.normalize('NFC', text).casefold())
 
 
-def validate(chunks, questions):
+def corpus_hit(chunks, gold):
+    """Validate evidence, including evidence split at adjacent page boundaries."""
+    for index, chunk in enumerate(chunks):
+        if hit(chunk, gold):
+            return True
+        for neighbor_index in (index - 1, index + 1):
+            if not 0 <= neighbor_index < len(chunks):
+                continue
+            neighbor = chunks[neighbor_index]
+            if neighbor['source_id'] != chunk['source_id']:
+                continue
+            combined = re.sub(r'\s+', ' ', unicodedata.normalize('NFC', chunk['text'] + ' ' + neighbor['text'])).strip()
+            for item in gold:
+                evidence = re.sub(r'\s+', ' ', unicodedata.normalize('NFC', item['evidence'])).strip()
+                if item['page'] in (chunk['page'], neighbor['page']) and evidence in combined:
+                    return True
+    return False
+
+
+def validate(chunks, questions, *, allow_page_boundary=False):
     if not isinstance(chunks, list) or not chunks:
         raise ValueError('chunks phải là JSON array không rỗng')
     if not isinstance(questions, list) or not questions:
@@ -38,17 +57,27 @@ def validate(chunks, questions):
             raise ValueError(f"question {q['id']}: split hoặc question không hợp lệ")
         if not isinstance(q.get('expected_answer'), str) or not q['expected_answer'].strip():
             raise ValueError(f"question {q['id']}: expected_answer phải là chuỗi không rỗng")
-        if not isinstance(q.get('gold'), list) or not q['gold']:
+        answerable = q.get('answerable', True)
+        if type(answerable) is not bool:
+            raise ValueError(f"question {q['id']}: answerable phai la boolean")
+        if not isinstance(q.get('gold'), list) or (answerable and not q['gold']) or (not answerable and q['gold']):
             raise ValueError(f"question {q['id']}: gold phải là danh sách không rỗng")
+        if not answerable:
+            continue
         for g in q['gold']:
             if not all(key in g and g[key] is not None for key in ('source_id', 'page', 'evidence')) or not isinstance(g['evidence'], str) or not g['evidence']:
                 raise ValueError(f"question {q['id']}: gold không hợp lệ")
-            if not any(hit(c, [g]) for c in chunks):
+            found = corpus_hit(chunks, [g]) if allow_page_boundary else any(hit(c, [g]) for c in chunks)
+            if not found:
                 raise ValueError(f"question {q['id']}: gold không nằm trọn trong chunk đúng nguồn/trang")
 
 
 def hit(chunk, gold):
-    return any(chunk['source_id'] == g['source_id'] and chunk['page'] == g['page'] and g['evidence'] in chunk['text'] for g in gold)
+    def normalize(value):
+        return re.sub(r'\s+', ' ', unicodedata.normalize('NFC', value)).strip()
+    text = normalize(chunk['text'])
+    return any(chunk['source_id'] == g['source_id'] and chunk['page'] == g['page'] and
+               normalize(g['evidence']) in text for g in gold)
 
 
 class TfidfIndex:
@@ -129,7 +158,9 @@ def main():
                'index_seconds': index_seconds, 'service_cost_usd': 0}
     args.output.mkdir(parents=True, exist_ok=True)
     for name, obj in (('traces.json', traces), ('summary.json', summary)):
-        (args.output / name).write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        # ASCII output keeps the artifact readable even when Windows chooses a
+        # legacy console encoding for a subsequent consumer.
+        (args.output / name).write_text(json.dumps(obj, ensure_ascii=True, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
